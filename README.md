@@ -1,4 +1,4 @@
-# Pengin
+# ![Logo](https://raw.githubusercontent.com/electrikmilk/Pengin/main/favicon/favicon-32x32.png) Pengin
 
 This is my first attempt at a Social Network written in PHP with a basic front-end.
 
