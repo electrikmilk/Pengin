@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "moderation"
+AuthUserFile "/var/www/html/mods/.htpasswd"
+require valid-user

@@ -1,0 +1,50 @@
+{
+  "background_color": "#6e7a92",
+  "description": "Discuss topics with the world.",
+  "display": "standalone",
+  "gcm_sender_id": "882138759007",
+  "gcm_user_visible_only": true,
+  "icons": [{
+      "src": "https://pengin.app/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://pengin.app/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "name": "Pengin",
+  "share_target": {
+    "action": "newPost",
+    "enctype": "multipart/form-data",
+    "method": "POST",
+    "params": {
+      "title": "title",
+      "content": "content",
+      "url": "url",
+      "files": [{
+        "name": "externalMedia",
+        "accept": [
+          "image/jpeg",
+          "image/png",
+          "image/gif",
+          "video/quicktime",
+          "video/mp4"
+        ]
+      }]
+    }
+  },
+  "short_name": "Pengin",
+  "start_url": "https://pengin.app/?source=home&medium=shortcut",
+  "theme_color": "#0088bb",
+  "scope": "/",
+  "android_package_name": "com.pengin.app",
+  "prefer_related_applications": true,
+  "related_applications": [{
+    "id": "com.pengin.app",
+    "platform": "chromeos_play",
+    "url": "https://play.google.com/store/apps/details?id=com.pengin.app"
+  }]
+}

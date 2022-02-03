@@ -1,0 +1,18 @@
+{
+  "English (US)": {
+    "description": "United States English",
+    "code": "en_us"
+  },
+  "English (UK)": {
+    "description": "British English",
+    "code": "en_uk"
+  },
+  "English (CA)": {
+    "description": "Canadian English",
+    "code": "en_ca"
+  },
+  "English (AU)": {
+    "description": "Australian English",
+    "code": "en_au"
+  }
+}

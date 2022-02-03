@@ -1,0 +1,95 @@
+RewriteEngine On
+Options +FollowSymlinks -Indexes
+DirectoryIndex index.php
+RewriteOptions inherit
+
+# Environment Variables
+SetEnv RECAPTCHA_SECRET ""
+
+# Compress text, html, javascript, css, xml:
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/webp
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+# Expires
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 week"
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType text/plain "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType application/x-javascript "access plus 1 day"
+ExpiresByType application/javascript "access plus 1 day"
+ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
+
+# Error Pages
+ErrorDocument 404 /index.php?page=404
+ErrorDocument 403 /403.php
+ErrorDocument 500 /500.php
+ErrorDocument 501 /500.php
+ErrorDocument 502 /500.php
+ErrorDocument 503 /500.php
+
+# Remove file extension from URL
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+# URL Rewrites #
+
+# Accounts
+RewriteRule ^login index.php?page=login [L]
+RewriteRule ^forgot-password index.php?page=forgot [L]
+RewriteRule ^signup index.php?page=signup [L]
+
+# General
+RewriteRule ^home index.php?page=home [L]
+RewriteRule ^about/([^/\.]+) index.php?folder=about&page=$1 [L]
+RewriteRule ^discuss/([^/\.]+)/([^/\.]+) index.php?page=thread&id=$2 [L]
+RewriteRule ^discuss/([^/\.]+) index.php?page=threads&topic=$1 [L]
+RewriteRule ^discuss index.php?page=discuss [L]
+RewriteRule ^created index.php?page=created [L]
+
+# Posts
+RewriteRule ^post/([^/\.]+)/([^/\.]+) index.php?page=post&id=$1&history=true [L]
+RewriteRule ^post/([^/\.]+) index.php?page=post&id=$1 [L]
+RewriteRule ^thread/([^/\.]+) index.php?page=thread&id=$1 [L]
+RewriteRule ^create-thread index.php?page=create-thread [L]
+
+# Image proxy
+RewriteRule ^images/([^/\.]+)/([^/\.]+)/([^/\.]+)$ image.php?type=$1&id=$2&arg=$3 [L]
+RewriteRule ^images/([^/\.]+)/([^/\.]+) image.php?type=$1&id=$2 [L]
+RewriteRule ^images/([^/\.]+) image.php?type=$1 [L]
+
+# User
+RewriteRule ^user/([^/\.]+) index.php?page=profile&user=$1 [L]
+RewriteRule ^@(.+?)/([^/\.]+)/([^/\.]+)$ index.php?page=post&id=$3 [NC,L]
+RewriteRule ^@(.+?)$ index.php?page=profile&user=$1 [NC,L]
+RewriteRule ^favorites index.php?page=favorites [L]
+RewriteRule ^activity index.php?page=activity [L]
+RewriteRule ^messages/([^/\.]+) index.php?page=messages&id=$1 [L]
+RewriteRule ^messages index.php?page=messages [L]
+RewriteRule ^settings/([^/\.]+) index.php?page=$1&folder=settings [L]
+
+# Search
+RewriteRule ^search/([^/\.]+) index.php?page=search&query=$1 [L]
+RewriteRule ^hashtag/([^/\.]+) index.php?page=search&query=$1&hashtag=true [L]
+
+# API URLs
+RewriteRule ^api/([^/\.]+)/([^/\.]+) api-backend/request.php?version=$1&action=$2 [L]
+
+# Misc
+RewriteRule ^help/([^/\.]+) index.php?page=$1&folder=help [L]
+RewriteRule ^mod/([^/\.]+) mods/index.php?page=$1 [L]

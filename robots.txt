@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /site-backend/
+Disallow: /api-backend/
+Disallow: /accounts/
+Disallow: /minify/
+Disallow: /phpmyadmin/
+Disallow: /translations/
+
+# Sitemap: https://pengin.app/sitemap.xml

@@ -1,0 +1,50 @@
+{
+  "English (US)": {
+    "description": "United States English",
+    "code": "en_us"
+  },
+  "English (UK)": {
+    "description": "British English",
+    "code": "en_uk"
+  },
+  "English (CA)": {
+    "description": "Canadian English",
+    "code": "en_ca"
+  },
+  "English (AU)": {
+    "description": "Australian English",
+    "code": "en_au"
+  },
+  "Deutsch": {
+    "description": "German",
+    "code": "de"
+  },
+  "русский": {
+    "description": "Russian",
+    "code": "ru"
+  },
+  "Français": {
+    "description": "French",
+    "code": "fr"
+  },
+  "Italiano": {
+    "description": "Italian",
+    "code": "it"
+  },
+  "日本語": {
+    "description": "Japanese",
+    "code": "jp"
+  },
+  "한국어": {
+    "description": "Korean",
+    "code": "kr"
+  },
+  "简体中文": {
+    "description": "Simplified Chinese",
+    "code": "zh_cn"
+  },
+  "繁體中文": {
+    "description": "Traditional Chinese",
+    "code": "zh_tw"
+  }
+}
