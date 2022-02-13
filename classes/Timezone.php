@@ -11,7 +11,7 @@ class Timezone {
     $hrs = floor( $mins / 60 );
     $mins -= $hrs * 60;
     $offset = sprintf( '%+d:%02d', $hrs * $sgn, $mins );
-    $db = new PDO( 'mysql:host=localhost;dbname=data', 'admin', 'N0rthP013$' );
+    $db = new PDO( 'mysql:host=localhost;dbname=data', 'root', 'root' );
     $db->exec( "SET time_zone='$offset';" );
   }
   public static function convert( $datetime, $to, $from ) {
